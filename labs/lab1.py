@@ -75,7 +75,7 @@ def give_me_a_tuple():
     This function returns a tuple
     """
     tpl = ('n', 0, 'changes', 2, 'tuples')
-    return tpl
+    return tpl[0:3]
 
 def sum_numbers_one_to_ten():
     """
