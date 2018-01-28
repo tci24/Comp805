@@ -205,7 +205,7 @@ def test_check_is_even(results_dict):
 
 def test_sum_numbers_one_to_ten(results_dict):
     """
-    Checks that lab1.sum_numbers_one_to_ten() returns a the correct value
+    Checks that lab1.sum_numbers_one_to_ten() returns the correct value
     """
     print("")
     print("Testing lab1.sum_numbers_one_to_ten()")
@@ -266,6 +266,68 @@ def test_check_is_less_than(results_dict):
         test_failed(results_dict)
     print(message)
 
+def test_is_between(results_dict):
+    """
+    Checks that lab1.is_between(x,y,z) returns True if x <= y <= z, False otherwise
+    """
+    print("")
+    print("Testing lab1.is_between()")
+    message = "----"
+    try:
+        result = lab1.is_between(1,2,3)
+        if not isinstance(result, bool):
+            message += 'Did not return a boolean - Fail'
+            test_failed(results_dict)
+        else:
+            message += 'A boolean was returned - Pass'
+            test_passed(results_dict)
+            # now check if the result is true (2 is between 1 and 3)
+            if result is True:
+                message += '\n---- 2 is between 1 and 3, True - Pass'
+                test_passed(results_dict)
+            else:
+                message += '\n---- 2 is between 1 and 3, False - Fail'
+                test_failed(results_dict)
+            # try again, with (2,1,3)
+            result = lab1.is_between(2,1,3)
+            if result is False:
+                message += '\n---- 1 is between 2 and 3, False - Pass'
+                test_passed(results_dict)
+            else:
+                message += '\n---- 1 is between 2 and 3, True - Fail'
+                test_failed(results_dict)
+    except AttributeError:
+        message += 'Could not find lab1.is_between function - Fail'
+        test_failed(results_dict)
+    print(message)
+
+def test_sum_odd_to(results_dict):
+    """
+    Checks that lab1.sum_odd_to() returns the correct value using test case sum_odd_to(9)
+    """
+    print("")
+    print("Testing lab1.sum_odd_to()")
+    message = "----"
+    try:
+        result = lab1.sum_odd_to(9)
+        if not isinstance(result, int):
+            message += 'Did not return an integer - Fail'
+            test_failed(results_dict)
+        else:
+            message += 'An integer was returned - Pass'
+            test_passed(results_dict)
+            # now check if the value is correct, should be 25
+            if result is not 25:
+                message += '\n----Did not return the correct number - Fail'
+                test_failed(results_dict)
+            else:
+                message += '\n----The correct value (25) was returned - Pass'
+                test_passed(results_dict)
+    except AttributeError:
+        message += 'Could not find lab1.sum_odd_to function - Fail'
+        test_failed(results_dict)
+    print(message)
+
 def run():
     """
     This function is the test runner. It calls the functions
@@ -288,6 +350,8 @@ def run():
     test_sum_numbers_one_to_ten(results_dict)
     test_check_is_even(results_dict)
     test_check_is_less_than(results_dict)
+    test_is_between(results_dict)
+    test_sum_odd_to(results_dict)
 
     print("")
     print("Final Results:")
