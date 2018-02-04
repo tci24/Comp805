@@ -47,3 +47,16 @@ def restock_inventory(inventory):
         else:
             dict[item] = inventory[item] + 10
     return dict
+
+def filter_0_items(inventory):
+	"""
+	Removes items that have a value of 0 from a dictionary of inventories
+	inventory: a dictionary with:
+		key: string that is the name of the inventory item
+		value: integer that equeals the number of that item currently on hand
+	Returns: the same inventory_dict with any item that had 0 quantity removed
+	"""
+    for item in list(inventory.keys()):
+        if inventory[item] == 0:
+            del inventory[item]
+    return inventory
