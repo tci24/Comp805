@@ -60,3 +60,22 @@ def filter_0_items(inventory):
         if inventory[item] == 0:
             del inventory[item]
     return inventory
+
+def average_grades(grades):
+	"""
+	Takes grade values from a dictionary and averages them into a final grade
+	grades: a dictionary of grades with:
+		key: string of student names
+		value: list of integer grades received in class
+	Returns: dictionary that averages out the grades of each student
+	"""
+    for key in grades:
+        l1 = list(grades.get(key))
+        div_by = len(l1)
+        total = 0.0
+        for grade in l1:
+            float(grade)
+            total = total + grade
+        av = total/div_by
+        grades[key] = av
+    return grades
