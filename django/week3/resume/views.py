@@ -5,8 +5,13 @@ Tiffany
 """
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Experience
 
 # Create your views here.
 def home(request):
-	return HttpResponse('Welcome to the resume app')
+	"""
+	Returns the resume app resume template.
+	"""
+	qs_exp = Experience.objects.all()
+	context = {'my_experience': qs_exp}
+	return render(request, 'resume/resume.html', context)
