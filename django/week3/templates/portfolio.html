@@ -1,0 +1,50 @@
+<!-- portfolioplus/templates/portfolio.html -->
+{% extends 'base.html' %}
+{% block title %}My Portfolio{% endblock %}
+{% load static %}
+{% block content %}
+<link rel='stylesheet' href="{% static 'css/portfolio.css' %}" />
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<h1>Tiffany's Portfolio</h1>
+<hr>
+
+<h2>PORTFOLIO</h2>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column">
+    <div class="content">
+      <img src="{% static 'images/cakepop.jpg' %}" alt="Cake Pops" style="width:100%">
+      <h3>Cake Pops</h3>
+      <p>French sugar cake pops.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+      <img src="{% static 'images/chocolate.jpg' %}" alt="Chocolate Dream" style="width:100%">
+      <h3>Chocolate Dream</h3>
+      <p>Created using the finest chocolates.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+      <img src="{% static 'images/candybar.jpg' %}" alt="Candy Bar" style="width:100%">
+      <h3>Candy Bar</h3>
+      <p>Beautiful candy bar for a wedding.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+      <img src="{% static 'images/icecream.jpg' %}" alt="Ice Cream Treats" style="width:100%">
+      <h3>Ice Cream Treats</h3>
+      <p>Adorable ice cream treats.</p>
+    </div>
+  </div>
+<!-- END Grid -->
+</div>
+
+<!-- END MAIN -->
+</div>
+{% endblock %}
