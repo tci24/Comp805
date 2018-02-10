@@ -1,0 +1,36 @@
+<!-- portfolioplus/resume/templates/resume.html -->
+{% extends 'base.html' %}
+{% block title %}Resume{% endblock %}
+
+{% block content %}
+<p>Tiffany's Resume</p>
+<p>
+  {% if my_experience %}
+  <table border = "1" width = "100%">
+    {% for exp in my_experience %}
+      <tr>
+      <td colspan = "2">{{exp.title}}</td>
+      </tr>
+      <tr>
+        <td>{{exp.location}}</td>
+        <td>{{exp.start_date}} to {{exp.end_date}}</td>
+      </tr>
+      <tr>
+      <td colspan = "2">{{exp.description}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+    <h2>No Experience found.....</h2>
+  {% endif %}
+  <!--{% if my_experience %}
+    <ul>
+      {% for exp in my_experience %}
+        <li>{{exp.title}}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>No Experience found.</h2>
+  {% endif %}-->
+</p>
+{% endblock %}
