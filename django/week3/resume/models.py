@@ -7,3 +7,6 @@ class Experience(models.Model):
 	start_date = models.DateField(null=True, blank=True)
 	end_date = models.DateField(null=True, blank=True)
 	description = models.TextField(null=False, blank=True)
+
+	def __str__(self):
+		return self.title
