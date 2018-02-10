@@ -1,5 +1,5 @@
 """
-portfolioplus/views.py for the portfolio Python package in week 2 container
+portfolioplus/views.py for the portfolioplus Python package in week 3 container
 Tiffany
 02/10/2018
 """
