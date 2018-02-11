@@ -3,7 +3,7 @@
 {% block title %}Resume{% endblock %}
 
 {% block content %}
-<p>Tiffany's Resume</p>
+<p>Experience</p>
 <p>
   {% if my_experience %}
   <table border = "1" width = "100%">
@@ -21,16 +21,28 @@
     {% endfor %}
   </table>
   {% else %}
-    <h2>No Experience found.....</h2>
-  {% endif %}
-  <!--{% if my_experience %}
-    <ul>
-      {% for exp in my_experience %}
-        <li>{{exp.title}}</li>
-      {% endfor %}
-    </ul>
-  {% else %}
     <h2>No Experience found.</h2>
-  {% endif %}-->
+  {% endif %}
+</p>
+<p>Education</p>
+<p>
+  {% if my_education %}
+  <table border = "1" width = "100%">
+    {% for edu in my_education %}
+      <tr>
+      <td colspan = "2">{{edu.degree}}: {{edu.major}}</td>
+      </tr>
+      <tr>
+        <td>{{edu.institution_name}}</td>
+        <td>{{edu.location}}</td>
+      </tr>
+      <tr>
+      <td colspan = "2">GPA: {{edu.gpa}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+    <h2>No Education found.</h2>
+  {% endif %}
 </p>
 {% endblock %}

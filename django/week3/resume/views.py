@@ -5,7 +5,7 @@ Tiffany
 """
 
 from django.shortcuts import render
-from .models import Experience
+from .models import Experience, Education
 
 # Create your views here.
 def home(request):
@@ -13,5 +13,6 @@ def home(request):
 	Returns the resume app resume template.
 	"""
 	qs_exp = Experience.objects.all()
-	context = {'my_experience': qs_exp}
+	qs_edu = Education.objects.all()
+	context = {'my_experience': qs_exp, 'my_education': qs_edu}
 	return render(request, 'resume/resume.html', context)
