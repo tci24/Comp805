@@ -10,3 +10,14 @@ class Experience(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class Education(models.Model):
+	institution_name = models.CharField(max_length=60, null=False, 
+		blank=False)
+	location = models.CharField(max_length=60, null=False, blank=True)
+	degree = models.CharField(max_length=60, null=False, blank=True)
+	major = models.CharField(max_length=60, null=False, blank=True)
+	gpa = models.FloatField(null=False, blank=True)
+
+	def __str__(self):
+		return self.institution_name
