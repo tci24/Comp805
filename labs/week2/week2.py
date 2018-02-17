@@ -26,11 +26,11 @@ def check_title(title_list):
 
 	new_list = []
 	for item in title_list:
-        item = str(item)
-        if item[0].isupper() and not item.isdigit():
-    		if item.istitle( ):
-            	new_list.append(item)
-    return new_list
+		item = str(item)
+		if item[0].isupper() and not item.isdigit():
+			if item.istitle( ):
+				new_list.append(item)
+	return new_list
 
 def restock_inventory(inventory):
 	"""
@@ -40,13 +40,13 @@ def restock_inventory(inventory):
 		value: integer that equeals the number of that item currently on hand
 	Returns: updated dictionary where each inventory item is restocked
 	"""
-    dict = {}
-    for item in inventory:
-        if item in dict:
-            dict[item] = dict[item] + 10
-        else:
-            dict[item] = inventory[item] + 10
-    return dict
+	d = {}
+	for item in inventory:
+		if item in d:
+			d[item] = d[item] + 10
+		else:
+			d[item] = inventory[item] + 10
+	return d
 
 def filter_0_items(inventory):
 	"""
@@ -56,10 +56,10 @@ def filter_0_items(inventory):
 		value: integer that equeals the number of that item currently on hand
 	Returns: the same inventory_dict with any item that had 0 quantity removed
 	"""
-    for item in list(inventory.keys()):
-        if inventory[item] == 0:
-            del inventory[item]
-    return inventory
+	for item in list(inventory.keys()):
+		if inventory[item] == 0:
+			del inventory[item]
+	return inventory
 
 def average_grades(grades):
 	"""
@@ -69,13 +69,13 @@ def average_grades(grades):
 		value: list of integer grades received in class
 	Returns: dictionary that averages out the grades of each student
 	"""
-    for key in grades:
-        l1 = list(grades.get(key))
-        div_by = len(l1)
-        total = 0.0
-        for grade in l1:
-            float(grade)
-            total = total + grade
-        av = total/div_by
-        grades[key] = av
-    return grades
+	for key in grades:
+		l1 = list(grades.get(key))
+		div_by = len(l1)
+		total = 0.0
+		for grade in l1:
+			float(grade)
+			total = total + grade
+		av = total/div_by
+		grades[key] = av
+	return grades
