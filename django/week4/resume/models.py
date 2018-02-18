@@ -12,6 +12,9 @@ class Resume(models.Model):
 	def get_last_name_first_name(self):
 		return "{}, {}".format(self.last_name, self.first_name)
 
+	def get_experience(self):
+		return self.experience_set.all()
+
 	def __str__(self):
 		return self.last_name
 

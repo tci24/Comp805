@@ -41,3 +41,11 @@ class ResumeTestcase(TestCase):
 		case1 = self.resume1.get_last_name_first_name()
 		expected1 = 'Last, First'
 		self.assertEqual(case1, expected1)
+
+	def test_get_experience(self):
+		"""
+		Tests get_experience() for Resume.
+		"""
+		case1 = list(self.resume1.get_experience())
+		expected1 = list(self.resume1.experience_set.all())
+		self.assertEqual(case1, expected1)
