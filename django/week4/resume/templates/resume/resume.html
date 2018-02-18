@@ -5,9 +5,9 @@
 {% block content %}
 <p>Experience</p>
 <p>
-  {% if my_experience %}
+  {% if my_resume %}
   <table border = "1" width = "100%">
-    {% for exp in my_experience %}
+    {% for exp in my_resume.get_experience %}
       <tr>
       <td colspan = "2">{{exp.title}}</td>
       </tr>
@@ -26,9 +26,9 @@
 </p>
 <p>Education</p>
 <p>
-  {% if my_education %}
+  {% if my_resume %}
   <table border = "1" width = "100%">
-    {% for edu in my_education %}
+    {% for edu in my_resume.get_education %}
       <tr>
       <td colspan = "2">{{edu.degree}}: {{edu.major}}</td>
       </tr>
