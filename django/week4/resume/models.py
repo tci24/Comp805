@@ -6,6 +6,9 @@ class Resume(models.Model):
 	first_name = models.CharField(max_length=25, null=False, blank=False)
 	last_name = models.CharField(max_length=25, null=True, blank=True)
 
+	def get_full_name(self):
+		return "{} {}".format(self.first_name, self.last_name)
+
 	def __str__(self):
 		return self.last_name
 
