@@ -15,6 +15,9 @@ class Resume(models.Model):
 	def get_experience(self):
 		return self.experience_set.all()
 
+	def get_education(self):
+		return self.education_set.all()
+
 	def __str__(self):
 		return self.last_name
 
