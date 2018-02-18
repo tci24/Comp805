@@ -9,6 +9,9 @@ class Resume(models.Model):
 	def get_full_name(self):
 		return "{} {}".format(self.first_name, self.last_name)
 
+	def get_last_name_first_name(self):
+		return "{}, {}".format(self.last_name, self.first_name)
+
 	def __str__(self):
 		return self.last_name
 
