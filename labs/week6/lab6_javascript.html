@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Lab 6</title>
+
+	<style>
+		li {
+			list-style: none;
+		}
+
+		.centered {
+			text-align: center;
+		}
+
+		.problem {
+			text-size: 1.5em;
+			font-weight: 700;
+			padding: 10px 20px;
+		}
+
+	</style>
+
+</head>
+
+<body>
+	<div class="header centered">
+		<h1>Welcome To Lab 6</h1>
+		<p><small>It's good to see you again, you like nice today.</small></p>
+
+		<h3>Instructions</h3>
+		<p>Read, and then do. It's that simple.</p>
+		<p>Add to workspace/labs/week6 and push to git. You get me?</p>
+	</div>
+
+	<div id="prob1">
+		<p class='problem'>1. When I click the button below, it should change from "click me!" to "I was clicked!"</p>
+		<input type="button" id="p1_button" value="Click Me!" onclick="change_button_text()"/>
+	</div>
+
+	<div id="prob2">
+		<p class='problem'>2. There are two buttons below. When a button is clicked, the other
+			 button should appear and the button that was clicked should disappear.</p>
+		<button id="p2_button_a" onclick="magic_button_a()">Button A: Show B</button>
+		<button id="p2_button_b" onclick="magic_button_b()" style="display:none">Button B: Show A</button>
+	</div>
+
+	<div id="prob3">
+		<p class='problem' id='p3'>3. My favorite color is is pink. When I click the button below. I want
+			this header to change to my favorite color</p>
+		<button onclick="change_font_color()">Pink Is My Favorite Color</button>
+	</div>
+
+	<div id="prob4">
+		<p class='problem'>4. I like to say hi to people. There is an unorded list below and a button. When I click the button,
+			I want another list item to appear greeting a new person.</p>
+		<button onclick="greeting()">Say Hi!</button>
+		<ul id="item"></ul>
+	</div>
+
+	<div id="prob5">
+		<p class='problem'>5. I like to browse the web. But I'm a nerd, and only use the console.
+			There is a text box and button below. I want to put a url into the text box, click the button, and see the response in the console.</p>
+		<input type="text" id="website">
+		<button onclick="fetch_web_response()">Fetch!</button>
+	</div>
+
+	<div id="prob6">
+		<p class='problem'>6. I like my data like I like my news...fake. Fill the empty ul below with some fake data from https://jsonplaceholder.typicode.com/ when I click the fetch button.</p>
+		<button onclick="get_fake_data()">Fetch!</button>
+		<ul id="fake_list"></ul>
+	</div>
+
+<script>
+	alert('Have fun! Submit by placing your finished file in workspace/labs/week6 and push to git. Collaborate via slack.');
+function change_button_text()
+{
+	var el = document.getElementById("p1_button");
+    	if (el.value=="I was clicked!") el.value = "Click Me!";
+    	else el.value = "I was clicked!";
+}
+function change_font_color()
+{
+	var ex = document.getElementById('p3');
+	ex.style.color = "pink";
+}
+function magic_button_a()
+{
+	var el_a = document.getElementById('p2_button_a');
+	el_a.style.display="none";
+	var el_b = document.getElementById('p2_button_b');
+	el_b.style.display="block";
+}
+function magic_button_b()
+{
+	var el_a = document.getElementById('p2_button_a');
+	el_a.style.display="block";
+	var el_b = document.getElementById('p2_button_b');
+	el_b.style.display="none";
+}
+function greeting()
+{
+	var names=["Hi, Alice", "Good day, Mad Hatter", "Hola, Cheshire Cat", "Top of the morning, Mr. Rabbit"];
+    var list = document.getElementById("item");
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(names[Math.floor((Math.random() * 4))]));
+    list.appendChild(li);
+}
+function fetch_web_response(){
+	var url = document.getElementById("website").value;
+	fetch(url).then(function(response){
+		return response.json();
+	}).then(function(response){ 
+		console.log(response);
+	})
+}
+function get_fake_data(){
+
+   fetch('https://jsonplaceholder.typicode.com/comments/')
+  .then(response => response.json())
+  .then(json => write_list(json));
+}
+function write_list(json){
+	console.log(json)
+	json.forEach(function(element) {
+	var fake_list = document.getElementById("fake_list");
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(JSON.stringify(element, ['postId','id','name', 'email', 'body'])));
+    fake_list.appendChild(li);
+	});
+}
+</script>
+</body>
+
+</html>
